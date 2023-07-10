@@ -40,8 +40,10 @@
     <script>
 
         //Exercise 1 Select the img, h3, and p tags and assign each one a variable
-
-
+        const dinoPic = document.getElementById('dino-pic');
+        const dinoName = document.getElementById('dino-name');
+        const dinoDescription = document.getElementById('dino-description');
+        const dinoPeriod = document.getElementById('dino-period');
 
         /* Exercise 2
         Create an object for a dinosaur, it can be real or imaginary. Look online for a picture and add it to the images folder, or you can use one of the triceratops images. 
@@ -49,9 +51,13 @@
         Show your object in the console. 
         */
 
+        const dinosaur = {
+            image: 'triceratops.png',
+            name: 'Triceratops',
+            info: 'The Triceratops was a herbivorous dinosaur with three horns and a bony frill.'
+        };
 
-
-
+        console.log(dinosaur);
 
         /* Exercise 3
         Show the object data on the page.
@@ -60,37 +66,44 @@
         Practice both dot notation and bracket notation.
         */
 
-
+        dinoPic.src = `images/${dinosaur.image}`;
+        dinoName.textContent = dinosaur.name;
+        dinoDescription.textContent = dinosaur.info;
+        dinoPeriod.textContent = 'Cretaceous';
 
         /*Exercise 4
         Change the value of one of the keys in your object.
         To update what is shown on the page, run the line of code that inserts the value again.
         */
 
-
+        dinosaur.info = 'The Triceratops was a large herbivorous dinosaur with three horns on its head and a bony frill.';
+        dinoDescription.textContent = dinosaur.info;
 
         /* Exercise 5
         Add a new key-value pair to your object.
         Pick another fact about your dinosaur, for example, the time period in which it lived, such
-        as Jurassic or Cretaceious.
+        as Jurassic or Cretaceous.
         Select the dino-period span tag, and insert the value of the new property to show it on the page.
         */
 
-
+        dinosaur.period = 'Late Cretaceous';
+        dinoPeriod.textContent = dinosaur.period;
 
         /*Exercise 6
-       Use the Object.keys() method to show an array of keys in the console.
-       */
+        Use the Object.keys() method to show an array of keys in the console.
+        */
 
-
+        const keys = Object.keys(dinosaur);
+        console.log(keys);
 
         /*Exercise 7
         Use a for loop with the "in" keyword to see all values printed in the console.
         Will this work with dot or bracket syntax?
         */
 
-
-
+        for (const key in dinosaur) {
+            console.log(`${key}: ${dinosaur[key]}`);
+        }
 
     </script>
 </body>
